@@ -7,7 +7,7 @@ public interface shopAdminMapper {
 
     int insert(shopAdmin record);
 
-    int insertSelective(shopAdmin record);
+    int insertSelective(shopAdmin record);//qqq
 
     shopAdmin selectByPrimaryKey(Integer id);
 
