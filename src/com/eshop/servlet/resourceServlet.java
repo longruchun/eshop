@@ -15,10 +15,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @WebServlet("/resourceServlet")
 public class resourceServlet extends BaseServlet {
-    public String getMenu(HttpServletRequest request,HttpServletResponse response) throws IOException {
+	
+	public IshopMenuBiz biz;
+	
+  
+
+	public void setBiz(IshopMenuBiz biz) {
+		this.biz = biz;
+	}
+
+	public String getMenu(HttpServletRequest request,HttpServletResponse response) throws IOException {
     	
-    	IshopMenuBiz biz=new shopMenuBizImpl();
-    	
+    
     	List<sysmenu> list=biz.getMenus();
     	
     	ObjectMapper mapper=new ObjectMapper();

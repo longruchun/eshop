@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
+import org.springframework.stereotype.Service;
 
 import com.eshop.biz.IshopMenuBiz;
 import com.eshop.dao.shopMenuMapper;
@@ -17,7 +18,7 @@ import com.eshop.model.shopMenu;
 import com.eshop.model.sysmenu;
 import com.eshop.util.MapperHelper;
 
-
+@Service("shopMemuImpl")
 public class shopMenuBizImpl implements IshopMenuBiz {
     
 	shopMenuMapper dao=new MapperHelper().getMapper(shopMenuMapper.class);

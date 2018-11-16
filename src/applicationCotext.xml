@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="shangbo.spring.core.example15.OutPutService"/>
+	
+	<!-- 要声明dao -->
+	<!-- 要声明Biz -->
+	<!-- 既然SessionFactory交给Spring管理了sessionFactory所引用的datasource也要交个spring管理 -->
+	<!-- 具体表现:DataSource在spring中也要配置一个 -->
+	<!-- 由于我们项目ORM选用mybatis,其中的dao接口我们交给spring管理, -->
+	<!-- 由于dao交给spring管理,所以mybatis sessionFactory 也交由spring管理 -->
+	<!-- 指明properties的位置 -->
+	<!-- <context:property-placeholder location="classpath:connection.properties"> </context> -->
+	<!-- 数据源使用JDBC -->
+	<bean  id="dataSource"  class="org.apache.commons.dbcp.BasicDataSource"  destroy-method="close">
+	<property name="driverClassName" value="${driver}"></property>
+
+	<property name="userName" value="${userName}"></property>
+	
+	<property name="password" value="${password}"></property>
+	<property name="maxActive" value="10"></property>
+	<property name="" value="${driver}"></property>
+	
+	
+	
+	
+	
+	
+	</bean>
+	
+	
+	
+	
+	
+	<bean  id="sqlSessionFactory"  class="org.mybatis.spring.SqlSessionFactoryBean">
+	<!-- 加载mybatis配置文件 -->
+    <property name="configLocation" value="classPath:MyBatis-config.xml"></property>	
+	  <property name="datasource"  ref="datasource"></property>	
+	  <!-- 自动扫描 -->
+	  <property name="mapperLocation" value="classPath*:org/consite/**/mapper/*.xml"></property>	
+	
+	
+	</bean>
+	
+	
+	<bean id="dao" class="com.eshop.dao.shopMenuMapper"></bean>
+		<bean id="biz" class="com.eshop.biz.impl.shopMenuBizImpl"></bean>
+
+</beans>
