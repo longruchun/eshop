@@ -146,4 +146,7 @@
   <select id="getModelsByPid"  resultMap="BaseResultMap">
      select * from shop_menu where pid=#{pid}
   </select>
+  
+  
+ t
 </mapper>

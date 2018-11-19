@@ -5,7 +5,8 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean class="shangbo.spring.core.example15.OutPutService"/>
-	
+	<context:annotation-config></context:annotation-config>
+    <context:component-scan  base-packag="com.hxzy.eshop"></context:component-scan>	
 	<!-- 要声明dao -->
 	<!-- 要声明Biz -->
 	<!-- 既然SessionFactory交给Spring管理了sessionFactory所引用的datasource也要交个spring管理 -->
